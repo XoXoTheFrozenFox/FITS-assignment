@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload, Append, Write, Read, Rename, and Delete FITS File</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+            text-align: center; /* Center align all content */
+            background-color: #A2CFFE;
+        }
+        h1, h2 {
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+        }
+        label {
+            font-weight: bold;
+            font-style: italic;
+        }
+        button {
+            font-family: "Arial", sans-serif;
+            font-weight: bold;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload, Write, Append, Read, Rename, and Delete FITS File</h1>
+
+    <!-- Form to upload FITS file -->
+    <h2>Upload FITS File</h2>
+    <form id="uploadForm" action="http://127.0.0.1:5000/fits/open" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".fits">
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Form to write FITS file -->
+    <h2>Write to FITS File</h2>
+    <form id="writeFitsForm">
+        <label for="fitsData">FITS Data (comma-separated values):</label><br>
+        <textarea id="writeEditor" style="height: 150px;"></textarea><br>
+        <button type="button" onclick="writeFits()">Write FITS File</button>
+    </form>
+
+    <!-- Form to append data to FITS file -->
+    <h2>Append to FITS File</h2>
+    <form id="appendFitsForm">
+        <label for="fitsData">FITS Data (comma-separated values):</label><br>
+        <textarea id="appendEditor" style="height: 150px;"></textarea><br>
+        <button type="button" onclick="appendFits()">Append FITS File</button>
+    </form>
+
+    <!-- Button to read FITS file -->
+    <h2>Read FITS File</h2>
+    <button onclick="readFits()">Read FITS File</button>
+
+    <!-- Form to rename FITS file -->
+    <h2>Rename FITS File</h2>
+    <form id="renameFitsForm">
+        <label for="newFilename">New Filename:</label><br>
+        <input type="text" id="newFilename"><br>
+        <button type="button" onclick="renameFits()">Rename FITS File</button>
+    </form>
+
+    <!-- Button to delete FITS file -->
+    <h2>Delete FITS File</h2>
+    <button onclick="deleteFits()">Delete FITS File</button>
+
+    <script>
+        function writeFits() {
+            const fitsData = document.getElementById('writeEditor').value;
+            fetch("http://127.0.0.1:5000/fits/write", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ data: fitsData })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("FITS file successfully written.");
+                } else {
+                    alert("Error writing FITS file.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function appendFits() {
+            const fitsData = document.getElementById('appendEditor').value;
+            fetch("http://127.0.0.1:5000/fits/append", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ data: fitsData })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Data successfully appended to FITS file.");
+                } else {
+                    alert("Error appending data to FITS file.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function readFits() {
+            window.location.href = "http://127.0.0.1:5000/fits/read";
+        }
+
+        function renameFits() {
+            const newFilename = document.getElementById('newFilename').value;
+            fetch(`http://127.0.0.1:5000/fits/rename/${newFilename}`, {
+                method: "PUT"
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("FITS file successfully renamed.");
+                } else {
+                    alert("Error renaming FITS file.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+
+        function deleteFits() {
+            fetch("http://127.0.0.1:5000/fits/delete", {
+                method: "DELETE"
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("FITS file successfully deleted.");
+                } else {
+                    alert("Error deleting FITS file.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
