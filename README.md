@@ -1,12 +1,27 @@
-# FITS-assignment
-## Description
+<h1 align="center">FITS-assignment👽💫🌑</h1>
+<h2 align="center">Photo of app📸</h2>
+<br/>
+<div align="center">
+<img src="https://github.com/XoXoTheFrozenFox/FITS-assignment/assets/104361159/5dc638b8-5b44-41c5-a769-c449db30109f" alt="Alt Text for Image" />
+</div>
+<h2 align="center">Description</h2>
+<br/>
+<div align="center">
 Flask web app to interact with the FITS file type. FITS is a file format designed to store, transmit, and manipulate scientific images and associated data.
-## Rest-API endpoints
-### Upload FITS file
-### Write to FITS file
-### Append to FITS file
-### Read FITS file
-### Rename FITS file
-### Delete FITS file
-## User-Interface
-![showingUI](https://github.com/XoXoTheFrozenFox/FITS-assignment/assets/104361159/5dc638b8-5b44-41c5-a769-c449db30109f)
+</div>
+<h2 align="center">Rest-API endpoints</h2>
+<br/>
+<div>
+<ul>
+  <li>Upload FITS file</li>
+  <li>Write to FITS file</li>
+  <li>Append to FITS file</li>
+  <li>Read FITS file</li>
+  <li>Rename FITS file</li>
+  <li>Delete FITS file</li>
+</ul>
+<h2 align="center">⚒️ Technologies used ⚒️</h2>
+<br/>
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=github,html,css,javascript,python,flask" />   
+</div>
