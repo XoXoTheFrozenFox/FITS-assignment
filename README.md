@@ -1,5 +1,5 @@
 <h1 align="center">FITS-assignment👽💫🌑</h1>
-<h2 align="center">Photo of app📸</h2>
+<h2 align="center">Photo of site📸</h2>
 <br/>
 <div align="center">
 <img src="https://github.com/XoXoTheFrozenFox/FITS-assignment/assets/104361159/5dc638b8-5b44-41c5-a769-c449db30109f" alt="Alt Text for Image" />
