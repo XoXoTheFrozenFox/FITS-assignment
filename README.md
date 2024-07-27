@@ -11,15 +11,16 @@ Flask web app to interact with the FITS file type. FITS is a file format designe
 </div>
 <h2 align="center">Rest-API endpoints</h2>
 <br/>
-<div>
-<ul>
-  <li>Upload FITS file</li>
-  <li>Write to FITS file</li>
-  <li>Append to FITS file</li>
-  <li>Read FITS file</li>
-  <li>Rename FITS file</li>
-  <li>Delete FITS file</li>
-</ul>
+<div style="text-align: center;">
+  <ul style="display: inline-block; text-align: left; list-style-position: inside;">
+    <li>Upload FITS file</li>
+    <li>Write to FITS file</li>
+    <li>Append to FITS file</li>
+    <li>Read FITS file</li>
+    <li>Rename FITS file</li>
+    <li>Delete FITS file</li>
+  </ul>
+</div>
 <h2 align="center">⚒️ Technologies used ⚒️</h2>
 <br/>
 <div align="center">
