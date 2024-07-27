@@ -24,5 +24,5 @@ Flask web app to interact with the FITS file type. FITS is a file format designe
 <h2 align="center">⚒️ Technologies used ⚒️</h2>
 <br/>
 <div align="center">
-    <img src="https://skillicons.dev/icons?i=github,html,css,javascript,python,flask" />   
+    <img src="https://skillicons.dev/icons?i=github,html,css,javascript,python,flask,latex" />   
 </div>
